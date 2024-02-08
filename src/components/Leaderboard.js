@@ -22,7 +22,10 @@ export const Leaderboard = ({ players }) => {
     return [...players].sort(SORT_FUNCTIONS[sortMethod]);
   }, [players, sortMethod]);
 
-  console.log(sortedPlayers, sortMethod);
+  const highestELO = players.reduce((acc, p) => {
+    return p.value > acc ? p.value : acc;
+  }, 0);
+
   return (
     <div className={styles["container"]}>
       <h2>Leaderboard</h2>
@@ -51,17 +54,42 @@ export const Leaderboard = ({ players }) => {
               }
             }}
           >
-            Elo{sortMethod === SORT_METHODS.ELO_DESC && <>&#8595;</>}
+            ELO{sortMethod === SORT_METHODS.ELO_DESC && <>&#8595;</>}
             {sortMethod === SORT_METHODS.ELO_ASC && <>&#8593;</>}
           </th>
         </tr>
-        {sortedPlayers.map((p) => (
+        {sortedPlayers.map((p, i) => (
           <tr style={{ height: "50px" }}>
             <td>
               <img src={p.logo} alt="logo" width="50" height="50" />
             </td>
             <td style={{ textAlign: "center" }}>
-              <div>{p.label}</div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "2px",
+                }}
+              >
+                {highestELO === p.value && (
+                  <img
+                    src="https://i.pinimg.com/originals/6e/b2/4e/6eb24ecffbbbfbcab03fa5679a893172.png"
+                    width="20"
+                    height="20"
+                    alt="crown"
+                  />
+                )}
+                {p.label}
+                {highestELO === p.value && (
+                  <img
+                    src="https://i.pinimg.com/originals/6e/b2/4e/6eb24ecffbbbfbcab03fa5679a893172.png"
+                    width="20"
+                    height="20"
+                    alt="crown"
+                  />
+                )}
+              </div>
             </td>
             <td style={{ width: "60px", textAlign: "center" }}>
               <div>{p.value}</div>

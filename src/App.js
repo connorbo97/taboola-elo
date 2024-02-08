@@ -9,6 +9,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { keyBy } from "lodash";
 import styles from "./app.module.scss";
 import { Leaderboard } from "./components/Leaderboard";
+import { AddPlayer } from "./components/AddPlayer";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -51,15 +52,18 @@ function App() {
 
   return (
     <div className={styles["app"]}>
-      <h1>
-        Taboola Ping Pong {fetchingPlayers && <i>(Fetching Players...)</i>}
-      </h1>
+      <h1 style={{ alignSelf: "center" }}>Taboola Ping Pong</h1>
+      {fetchingPlayers && (
+        <i style={{ alignSelf: "center" }}>(Fetching Players...)</i>
+      )}
 
       <LogMatch
         players={players}
         playersMap={playersMap}
         fetchPlayers={fetchPlayers}
       />
+      <div className={styles["divider"]} />
+      <AddPlayer fetchPlayers={fetchPlayers} />
       <div className={styles["divider"]} />
       <Leaderboard players={players} />
       <div style={{ padding: "40px" }} />
