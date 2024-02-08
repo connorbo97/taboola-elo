@@ -10,6 +10,15 @@ const TEAMS = {
   BLUE: "blue",
 };
 
+const safeParseInt = (val) => {
+  const parsed = parseInt(val);
+
+  if (isNaN(parsed)) {
+    return 0;
+  }
+  return parsed;
+};
+
 const PlayerDropdown = ({ players, player, setPlayer, id, label }) => {
   return (
     <div className={styles["dropdown"]}>
@@ -138,8 +147,13 @@ export const LogMatch = ({ players, playersMap, fetchPlayers }) => {
 
           newElo[id] = result;
 
+          const prevWins = safeParseInt(doc.data().wins);
+          const prevLosses = safeParseInt(doc.data().losses);
+
           return {
             value: result,
+            wins: score ? prevWins + 1 : prevWins,
+            losses: score ? prevLosses : prevLosses + 1,
           };
         },
       });

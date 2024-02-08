@@ -6,6 +6,8 @@ const SORT_METHODS = {
   PLAYER_DESC: "PLAYER_DESC",
   ELO_ASC: "ELO_ASC",
   ELO_DESC: "ELO_DESC",
+  WIN_DESC: "WIN_DESC",
+  WIN_ASC: "WIN_ASC",
 };
 
 const SORT_FUNCTIONS = {
@@ -14,6 +16,8 @@ const SORT_FUNCTIONS = {
   [SORT_METHODS.PLAYER_DESC]: (a, b) => (a.label > b.label ? -1 : 1),
   [SORT_METHODS.ELO_ASC]: (a, b) => a.value - b.value,
   [SORT_METHODS.ELO_DESC]: (a, b) => b.value - a.value,
+  [SORT_METHODS.WIN_ASC]: (a, b) => (a.wins || 0) - (b.wins || 0),
+  [SORT_METHODS.WIN_DESC]: (a, b) => (b.wins || 0) - (a.wins || 0),
 };
 
 export const Leaderboard = ({ players }) => {
@@ -43,6 +47,19 @@ export const Leaderboard = ({ players }) => {
           >
             Player{sortMethod === SORT_METHODS.PLAYER_DESC && <>&#8595;</>}
             {sortMethod === SORT_METHODS.PLAYER_ASC && <>&#8593;</>}
+          </th>
+          <th
+            style={{ width: "60px", textAlign: "center" }}
+            onClick={() => {
+              if (sortMethod === SORT_METHODS.WIN_DESC) {
+                setSortMethod(SORT_METHODS.WIN_ASC);
+              } else {
+                setSortMethod(SORT_METHODS.WIN_DESC);
+              }
+            }}
+          >
+            WINS{sortMethod === SORT_METHODS.WIN_DESC && <>&#8595;</>}
+            {sortMethod === SORT_METHODS.WIN_ASC && <>&#8593;</>}
           </th>
           <th
             style={{ width: "60px", textAlign: "center" }}
@@ -90,6 +107,9 @@ export const Leaderboard = ({ players }) => {
                   />
                 )}
               </div>
+            </td>
+            <td style={{ width: "60px", textAlign: "center" }}>
+              <div>{p.wins || 0}</div>
             </td>
             <td style={{ width: "60px", textAlign: "center" }}>
               <div>{p.value}</div>
