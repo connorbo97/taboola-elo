@@ -10,6 +10,7 @@ import { keyBy } from "lodash";
 import styles from "./app.module.scss";
 import { Leaderboard } from "./components/Leaderboard";
 import { AddPlayer } from "./components/AddPlayer";
+import { EditPlayer } from "./components/EditPlayer";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -66,6 +67,12 @@ function App() {
       <AddPlayer fetchPlayers={fetchPlayers} />
       <div className={styles["divider"]} />
       <Leaderboard players={players} />
+      <div className={styles["divider"]} />
+      <EditPlayer
+        players={players}
+        playersMap={playersMap}
+        fetchPlayers={fetchPlayers}
+      />
       <div style={{ padding: "40px" }} />
     </div>
   );

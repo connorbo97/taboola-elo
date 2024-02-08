@@ -35,7 +35,7 @@ export const Leaderboard = ({ players }) => {
       <h2>Leaderboard</h2>
       <table className={styles["leaderboard-container"]}>
         <tr>
-          <th style={{ width: "50px" }}></th>
+          <th style={{ width: "120px" }}></th>
           <th
             onClick={() => {
               if (sortMethod === SORT_METHODS.PLAYER_DESC) {
@@ -77,8 +77,19 @@ export const Leaderboard = ({ players }) => {
         </tr>
         {sortedPlayers.map((p, i) => (
           <tr style={{ height: "50px" }}>
-            <td>
-              <img src={p.logo} alt="logo" width="50" height="50" />
+            <td style={{ position: "relative" }}>
+              <img
+                src={p.logo}
+                alt="logo"
+                width="45"
+                height="45"
+                style={{
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              />
             </td>
             <td style={{ textAlign: "center" }}>
               <div
