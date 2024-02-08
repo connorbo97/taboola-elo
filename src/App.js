@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className={styles["app"]}>
-      <h1 style={{ alignSelf: "center" }}>Taboola Ping Pong</h1>
+      <h1 className={styles["header"]}>Taboola Ping Pong</h1>
       {fetchingPlayers && (
         <i style={{ alignSelf: "center" }}>(Fetching Players...)</i>
       )}
