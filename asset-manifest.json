@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/taboola-elo/static/css/main.0bf72f93.css",
-    "main.js": "/taboola-elo/static/js/main.5d767240.js",
+    "main.js": "/taboola-elo/static/js/main.9a73ce22.js",
     "static/js/592.5ec32bcb.chunk.js": "/taboola-elo/static/js/592.5ec32bcb.chunk.js",
     "index.html": "/taboola-elo/index.html",
     "main.0bf72f93.css.map": "/taboola-elo/static/css/main.0bf72f93.css.map",
-    "main.5d767240.js.map": "/taboola-elo/static/js/main.5d767240.js.map",
+    "main.9a73ce22.js.map": "/taboola-elo/static/js/main.9a73ce22.js.map",
     "592.5ec32bcb.chunk.js.map": "/taboola-elo/static/js/592.5ec32bcb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0bf72f93.css",
-    "static/js/main.5d767240.js"
+    "static/js/main.9a73ce22.js"
   ]
 }
