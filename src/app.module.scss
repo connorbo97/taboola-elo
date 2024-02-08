@@ -1,0 +1,10 @@
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  padding: 10px;
+  width: 100%;
+  border-bottom: 2px solid black;
+}

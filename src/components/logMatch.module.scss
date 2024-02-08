@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    select {
+        min-width: 100px;
+    }
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.team {
+    display: flex;
+    min-width: 200px;
+    gap: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.players {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 50%;
+    gap: 10px;
+}
+
+.winner {
+    max-width: 25%;
+    display: flex;
+    gap: 10px;
+}
+
+.matchup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.side {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    border: 3px dotted transparent;
+    justify-content: flex-end;
+    padding: 10px;
+
+    &.winning {
+        border-color: green;
+    }
+
+    &.losing {
+        border-color: red;
+    }
+
+    .player-card {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .inverse {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
