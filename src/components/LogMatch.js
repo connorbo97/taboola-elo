@@ -166,9 +166,17 @@ export const LogMatch = ({ players, playersMap, fetchPlayers }) => {
       updateIndividualElo(blue2, redEloAvg, blueScore),
     ];
 
-    await Promise.all(updates);
+    try {
+      await Promise.all(updates);
+
+      await fetchPlayers();
+    } catch (err) {
+      alert("Failed to update elo " + err?.message);
+      console.log(err);
+    }
 
     setSubmitting(false);
+    setWinningTeam("");
 
     updateMatchHistory({
       red1,
